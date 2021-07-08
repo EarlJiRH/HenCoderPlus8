@@ -4,7 +4,7 @@ import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
 import android.view.View
-import com.example.customview.px
+import com.example.customview.dp
 import kotlin.math.cos
 import kotlin.math.sin
 
@@ -12,7 +12,7 @@ import kotlin.math.sin
  * ================================================
  * 类名：com.example.retrofit
  * 时间：2021/7/5 17:46
- * 描述：自定义仪表盘效果控件
+ * 描述：自定义仪表盘效果控件 class01
  * 修改人：
  * 修改时间：
  * 修改备注：
@@ -20,16 +20,16 @@ import kotlin.math.sin
  * @author Admin
  */
 
-//仪表盘开口角度
-const val OPEN_ANGLE = 120f
-
-
 class DashboardView(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
-    private val dashWidth = 2f.px //刻度宽
-    private val dashHeight = 10f.px //刻度高
-    private val radius = 150f.px //刻度盘半径
 
-    private val length = 120f.px //长度
+    //仪表盘开口角度
+    private val openAngle = 120f
+
+    private val dashWidth = 2f.dp //刻度宽
+    private val dashHeight = 10f.dp //刻度高
+    private val radius = 150f.dp //刻度盘半径
+
+    private val length = 120f.dp //长度
 
     private val dashCount = 20f//刻度值数量
 
@@ -43,11 +43,11 @@ class DashboardView(context: Context?, attrs: AttributeSet?) : View(context, att
     private lateinit var pathEffect: PathEffect
 
     //刻度值
-    private val mark = 9
+    private val mark = 5
 
 
     init {
-        paint.strokeWidth = 3f.px
+        paint.strokeWidth = 3f.dp
         //空心
         paint.style = Paint.Style.STROKE
         //dir 绘制顺序
@@ -65,8 +65,8 @@ class DashboardView(context: Context?, attrs: AttributeSet?) : View(context, att
             height / 2f - radius,
             width / 2f + radius,
             height / 2f + radius,
-            90 + OPEN_ANGLE / 2,//起始角度
-            360 - OPEN_ANGLE//圆弧滑过的角度
+            90 + openAngle / 2,//起始角度
+            360 - openAngle//圆弧滑过的角度
         )
 
         val pathMeasure = PathMeasure(path, false)
@@ -113,6 +113,6 @@ class DashboardView(context: Context?, attrs: AttributeSet?) : View(context, att
 
 
     private fun markToRadians(mark: Int) =
-        (90 + OPEN_ANGLE / 2 + (360 - OPEN_ANGLE) / dashCount * mark).toDouble()
+        (90 + openAngle / 2 + (360 - openAngle) / dashCount * mark).toDouble()
 
 }

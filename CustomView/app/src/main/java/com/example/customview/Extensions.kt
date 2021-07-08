@@ -16,16 +16,22 @@ import android.util.TypedValue
  */
 
 //扩展属性
-val Float.px
+val Float.dp
     get() = TypedValue.applyDimension(
         TypedValue.COMPLEX_UNIT_DIP,
         this,
         Resources.getSystem().displayMetrics //Resources.getSystem() 获取系统相关配置
     )
 
-val Int.px
+val Float.sp
     get() = TypedValue.applyDimension(
-        TypedValue.COMPLEX_UNIT_DIP,
-        this.toFloat(),
+        TypedValue.COMPLEX_UNIT_SP,
+        this,
         Resources.getSystem().displayMetrics //Resources.getSystem() 获取系统相关配置
-    ).toInt()
+    )
+
+val Int.dp
+    get() = this.toFloat().dp
+
+
+

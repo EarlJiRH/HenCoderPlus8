@@ -4,7 +4,7 @@ import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
 import android.view.View
-import com.example.customview.px
+import com.example.customview.dp
 
 /**
  * ================================================
@@ -22,21 +22,22 @@ class XfermodeView(context: Context?, attrs: AttributeSet?) : View(context, attr
     private val paint = Paint(Paint.ANTI_ALIAS_FLAG)
 
     private val bounds = RectF(
-        150f.px,
-        50f.px,
-        300f.px,
-        250f.px
+        150f.dp,
+        50f.dp,
+        300f.dp,
+        250f.dp
     )
     private val mode = PorterDuffXfermode(PorterDuff.Mode.DST_OVER)
 
     private val circleBitmap = Bitmap.createBitmap(
-        150.px,
-        150.px,
+        150.dp.toInt(),
+        150.dp.toInt(),
         Bitmap.Config.ARGB_8888
     )
+
     private val squareBitmap = Bitmap.createBitmap(
-        150.px,
-        150.px,
+        150.dp.toInt(),
+        150.dp.toInt(),
         Bitmap.Config.ARGB_8888
     )
 
@@ -45,20 +46,20 @@ class XfermodeView(context: Context?, attrs: AttributeSet?) : View(context, attr
         val canvas = Canvas(circleBitmap)
         paint.color = Color.parseColor("#D81B60")
         canvas.drawOval(
-            50f.px,
-            0f.px,
-            150f.px,
-            100f.px,
+            50f.dp,
+            0f.dp,
+            150f.dp,
+            100f.dp,
             paint
         )
 
         canvas.setBitmap(squareBitmap)
         paint.color = Color.parseColor("#2196F3")
         canvas.drawRect(
-            0f.px,
-            50f.px,
-            100f.px,
-            150f.px,
+            0f.dp,
+            50f.dp,
+            100f.dp,
+            150f.dp,
             paint
         )
     }
@@ -70,8 +71,8 @@ class XfermodeView(context: Context?, attrs: AttributeSet?) : View(context, attr
 
         canvas.drawBitmap(
             circleBitmap,
-            150f.px,
-            50f.px,
+            150f.dp,
+            50f.dp,
             paint
         )
 
@@ -79,8 +80,8 @@ class XfermodeView(context: Context?, attrs: AttributeSet?) : View(context, attr
 
         canvas.drawBitmap(
             squareBitmap,
-            150f.px,
-            50f.px,
+            150f.dp,
+            50f.dp,
             paint
         )
         paint.xfermode = null

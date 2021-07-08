@@ -6,7 +6,7 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.util.AttributeSet
 import android.view.View
-import com.example.customview.px
+import com.example.customview.dp
 import kotlin.math.cos
 import kotlin.math.sin
 
@@ -14,7 +14,7 @@ import kotlin.math.sin
  * ================================================
  * 类名：com.example.retrofit
  * 时间：2021/7/6 13:19
- * 描述：自定义饼图效果控件
+ * 描述：自定义饼图效果控件 class01
  * 修改人：
  * 修改时间：
  * 修改备注：
@@ -22,7 +22,7 @@ import kotlin.math.sin
  * @author Admin
  */
 class PieView(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
-    private val radius = 150f.px //饼图半径
+    private val radius = 150f.dp //饼图半径
 
     private val paint = Paint(Paint.ANTI_ALIAS_FLAG)
 
@@ -38,9 +38,9 @@ class PieView(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
     )
 
     //偏移距离
-    private val offsetLength = 20f.px
+    private val offsetLength = 20f.dp
 
-    private val offsetIndex = 1
+    private val offsetIndex = 2
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)

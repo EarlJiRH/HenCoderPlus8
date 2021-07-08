@@ -4,14 +4,14 @@ import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
 import android.view.View
-import com.example.customview.R
-import com.example.customview.px
+import com.example.customview.dp
+import com.example.customview.getAvatar
 
 /**
  * ================================================
  * 类名：com.example.retrofit
  * 时间：2021/7/6 14:41
- * 描述：自定义头像切割圆角控件
+ * 描述：自定义头像切割圆角控件 class02
  * 修改人：
  * 修改时间：
  * 修改备注：
@@ -20,8 +20,8 @@ import com.example.customview.px
  */
 class AvatarView(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
 
-    private val imageWidth = 200f.px
-    private val imagePadding = 20f.px
+    private val imageWidth = 200f.dp
+    private val imagePadding = 20f.dp
     private val paint = Paint(Paint.ANTI_ALIAS_FLAG)
 
     private val bounds = RectF(
@@ -32,6 +32,12 @@ class AvatarView(context: Context?, attrs: AttributeSet?) : View(context, attrs)
     )
 
     private val mode = PorterDuffXfermode(PorterDuff.Mode.SRC_IN)
+
+    init {
+        paint.strokeWidth = 3f.dp
+        //空心
+//        paint.style = Paint.Style.STROKE
+    }
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
@@ -46,23 +52,25 @@ class AvatarView(context: Context?, attrs: AttributeSet?) : View(context, attrs)
         )
         paint.xfermode = mode
         canvas.drawBitmap(
-            getAvatar(imageWidth.toInt()),
+            getAvatar(context,imageWidth),
             imagePadding,
             imagePadding,
             paint
         )
         paint.xfermode = null
         canvas.restoreToCount(count)
+
+        paint.strokeWidth = 3f.dp
+        paint.style = Paint.Style.STROKE
+        canvas.drawOval(
+            imagePadding,
+            imagePadding,
+            imagePadding + imageWidth,
+            imagePadding + imageWidth,
+            paint
+        )
+
     }
 
-    private fun getAvatar(width: Int): Bitmap {
-        val options = BitmapFactory.Options()
-        //快速读取bitmap的尺寸
-        options.inJustDecodeBounds = true
-        BitmapFactory.decodeResource(resources, R.drawable.avatar_rengwuxian, options)
-        options.inJustDecodeBounds = false
-        options.inDensity = options.outWidth
-        options.inTargetDensity = width
-        return BitmapFactory.decodeResource(resources, R.drawable.avatar_rengwuxian, options)
-    }
+
 }
