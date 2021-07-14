@@ -65,7 +65,7 @@ class ProvinceView(context: Context, attrs: AttributeSet?) : View(context, attrs
         textAlign = Paint.Align.CENTER
     }
 
-    var province = "北京市"
+    private var province = "北京市"
         set(value) {
             field = value
             invalidate()
@@ -81,6 +81,7 @@ class ProvinceView(context: Context, attrs: AttributeSet?) : View(context, attrs
 //        //关闭离屏缓冲 默认值
 //        setLayerType(LAYER_TYPE_NONE,null)
     }
+
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
 
@@ -98,5 +99,7 @@ class ProvinceView(context: Context, attrs: AttributeSet?) : View(context, attrs
         }
     }
 }
+
+
 
 

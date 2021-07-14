@@ -1,10 +1,14 @@
 package com.example.customview
 
 import android.animation.*
+import android.graphics.Bitmap
 import android.graphics.PointF
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.graphics.drawable.toBitmap
+import androidx.core.graphics.drawable.toDrawable
 import com.example.customview.widget.ProvinceView
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -134,6 +138,12 @@ class MainActivity : AppCompatActivity() {
 //                .translationY(200.dp)
 //                .withLayer()//临时开启硬件加速
         }
+
+//        val bitmap = Bitmap.createBitmap(20, 20, Bitmap.Config.ARGB_8888)
+//        bitmap.toDrawable(resources)
+//
+//        val drawable = ColorDrawable()
+//        drawable.toBitmap()
     }
 
 

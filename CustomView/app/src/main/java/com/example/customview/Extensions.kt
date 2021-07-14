@@ -2,6 +2,7 @@ package com.example.customview
 
 import android.content.res.Resources
 import android.util.TypedValue
+import com.example.customview.widget.ProvinceView
 
 /**
  * ================================================
@@ -34,4 +35,7 @@ val Int.dp
     get() = this.toFloat().dp
 
 
-
+val ProvinceView.province: String
+    get() {
+        return "台湾"
+    }
