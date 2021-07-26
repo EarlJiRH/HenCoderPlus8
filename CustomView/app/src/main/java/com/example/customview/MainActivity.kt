@@ -80,6 +80,7 @@ class MainActivity : AppCompatActivity() {
 
 
         //Keyframe
+        //ofFloat ofInt的动画底层通过JNI获取View的属性动画,属性值可以私有
         if (imageView.visibility == View.VISIBLE) {
             val length = 200.dp
             //使用组合Keyframe 实现 快->慢->快 的动画效果
@@ -112,6 +113,7 @@ class MainActivity : AppCompatActivity() {
 //        animator.interpolator = DecelerateInterpolator()//减速插值器 适用于入场动画
 //        animator.interpolator = LinearInterpolator()//匀速插值器
 
+        //ofObject的动画底层通过反射获取View的属性动画,属性私有会导致报错
         if (pointFView.visibility == View.VISIBLE) {
             val animator = ObjectAnimator.ofObject(
                 pointFView,
