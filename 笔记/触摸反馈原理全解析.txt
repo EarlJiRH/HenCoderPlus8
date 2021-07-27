@@ -1,0 +1,31 @@
+View的触摸反馈
+重写onTouchEvent(),在方法内部指定触摸反馈算法
+(返回的Boolean值是所有权标志,仅和MotionEvent.DOWN事件相关联)
+event.getAction() 最早只处理单点
+event.getActionMasked() 多点触碰 —————推荐
+tooltipText 上下文提示文本 api>=26
+
+ViewGroup
+onInterceptTouchEvent() 父ViewGroup是否要拦截
+不用在第一时间返回true,而是在任意事件,需要拦截的时候返回true就行
+dispatchTouchEvent()  View整体处理Touch事件的选择
+	true ——————自己处理
+	false ——————继续事件传递
+
+View.dispatchTouchEvent();
+
+public boolean dispatchTouchEvent(MotionEvent event){
+	return onTouchEvent();
+}
+
+ViewGroup.dispatchTouchEvent();
+
+public boolean dispatchTouchEvent(MotionEvent event){
+	boolean result
+	if(interceptTouchEvent()){
+		result = onTouchEvent();//super.dispatchTouchEvent()
+	}else{
+		result = 子View的 dispatchTouchEvent();
+	}
+	return result
+}

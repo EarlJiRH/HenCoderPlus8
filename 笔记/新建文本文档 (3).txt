@@ -1,0 +1,23 @@
+高压低电流快充 低压大电流快充
+
+耗电优化
+1.优化应用的后台耗电
+2.符合系统的规则
+
+
+java hook
+
+
+寄存器 jvm虚拟机
+
+
+高效测试
+
+
+https://cloud.189.cn/t/rQvIbyYvAVNn     jg3p    数据结构与算法之美
+
+https://cloud.189.cn/t/qI73yuNnYjai     8dyw     iOS开发高手课
+
+https://cloud.189.cn/t/RJ7jUv3aUJz2     npq4     朱赟的技术管理课
+
+https://gitee.com/e-book-share/e-book/blob/master/ebook.md

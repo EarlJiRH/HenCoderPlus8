@@ -1,0 +1,21 @@
+登录和授权
+Cookie
+Cookie的起源:购物车
+Cookie的作用
+	会话管理:登录状态、购物车等
+	个性化:用户偏好、主题
+	Tracking:分析用户行为
+XSS(Cross-site scripting):httpOnly 跨站脚本攻击 Set-Cookie:session_id=123;HttpOnly
+XSRF(Cross-site request forgery):Referer 跨站请求伪造 Referer:bad_person.com
+
+
+Authorization
+主流用法:
+	Basic  Authorization:Basic <username:password(Base64ed)>   hencodertest:zhukai666
+	Bearer(持票人) Authorization:Bearer <bearer token> token获取方式:
+		OAuth2
+			微信登录
+
+Refresh Token
+	目的:安全
+			

@@ -1,0 +1,17 @@
+REST
+什么是REST(一种架构风格)
+Client-server architecture(客户端-服务器架构 cs架构)
+Statelessness(无状态)
+Cacheability(可缓存)
+Layered system(无感知系统)
+Code on demand(服务器返回数据可以包含可执行代码)
+Uniform interface(统一接口)
+  Resource identification in requests(通过请求就足够确认资源)
+  Resource manipulation through repressntations(客户端通过服务器的表现就有足够的信息去修改服务器的资源)
+  Self-descriptive messages(自描述的信息)
+  Hypermedia as the engine of application state(HATEOAS)(类似网站，提供一个首页可访问所有资源)
+
+
+RESTful HTTP
+正确使用HTTP
+

@@ -1,0 +1,20 @@
+属性动画
+ViewPropertyAnimator
+ObjectAnimator
+AnimatorSet
+PropertyValuesHolder
+Keyframe
+Interpolator
+TypeEvaluator
+Listeners
+ValueAnimator
+
+
+硬件加速
+
+软件绘制 CPU操作
+硬件绘制 GPU操作
+Bitmap 位图存储工具
+
+缺陷:兼容性
+离屏缓冲(存)

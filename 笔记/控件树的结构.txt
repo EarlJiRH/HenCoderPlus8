@@ -1,0 +1,24 @@
+
+
+FramLayout mDecor
+
+layoutResouce 
+
+
+ActivityThread			Activity			WindowManagerImpl			WindowManagerGlobal			ViewRootImpl			DecorView
+
+
+handleResumeActivity()
+
+performResumeActivity() 
+								 
+								  
+             		   onResume()			   addView()				   addView()               new ViewRootImpl()
+
+             		   																				setView()				assignParent()
+
+             		   																				requestLayout()
+
+             		   																				  checkThread()
+
+             		   																				scheduleTraversals()

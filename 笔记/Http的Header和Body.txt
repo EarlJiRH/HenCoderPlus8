@@ -1,0 +1,36 @@
+Header
+作用:HTTP消息的元数据(metadata)
+Host:服务器主机地址(域名(目标主机->子主机))
+[DNS(Domain Name System) 查询  域名->ip地址(DNS服务器转换)]
+Content-Type/Content-Length:Body的类型和长度(Body的字节数)
+   text/html:html文本，用于浏览器页面响应
+   application/x-www-form-urlencoded:普通表单,encoded URL格式
+   mulipart/form-data:多部分形式，一般用于传输包含二进制内容的多项内容  boundary=--------分界
+   application/json:json格式，用于Web Api 的响应或POST/PUT请求(比urlencoded更加灵活)
+   image/jpeg/application/zip...:单文件,用于Web Api响应或POST/PUT请求
+
+[Chunked Transfer Encoding(分块传输编码)
+   Transfer-Encoding:chunked
+   表示Body长度无法确定，Content-Length 不能使用
+   目的:在服务端还未获取到完整内容时，更快对客户端做出响应，减少用户等待]
+
+Location:重定向的目标URL
+User-Agent:用户代理(客户端) 
+Range/Accept-Range:指定Body的内容范围 (分段加载->断点续传,多线程下载)
+Cookie/Set-Cookie:发送Cookie/设置Cookie
+Authorzation:授权信息
+
+Accept:客户端能接受的数据类型。如 text/html
+Accept-Charset:客户端接受的字符集。如 utf-8
+Accept-Encoding:客户端接受的压缩编码类型。如 gzip
+Content-Encoding:压缩类型。如 gzip
+
+
+Cache
+Cache和Buffer的区别(缓存 缓冲(工作流))
+Cache-Control:no-cache no-store max-age
+Last-Modified
+  If-Modified-Since
+Etag(指纹)
+  If-None-Match
+Cache-Control:private/public

@@ -1,0 +1,84 @@
+HTTP的原理和工作机制
+
+HTTP到底是什么
+HyperText Transfer Protocol 超文本传输协议 
+	超文本:在电脑中显示的、含有可以指向其他文本的链接的文本  HTML
+	
+
+请求方法 
+	GET 获取资源:没有Body(幂等) 返回响应有Body
+	POST 增加或者修改资源:有Body(非幂等)
+	PUT  修改资源:有Body(幂等)
+	DELETE 删除资源:没有Body(幂等)
+	HEAD 获取资源信息 和GET类似 返回响应没有Body
+
+
+状态码
+作用:对结果做出类型化描述(如 [获取成功] [内容未找到])
+	1xx:临时性消息
+	2xx:成功
+	3xx:重定向
+	4xx:客户端错误
+	5xx:服务器错误
+
+
+
+HTTP的Header
+作用:HTTP消息的元数据(metadata)
+Host:服务器主机地址(域名(目标主机->子主机))
+	[DNS(Domain Name System) 查询  域名->ip地址(DNS服务器转换)] 应用层
+Content-Type/Content-Length:Body的类型和长度(Body的字节数)
+
+Content-Type
+   text/html:html文本，用于浏览器页面响应
+   application/x-www-form-urlencoded:普通表单(纯文字表单),encoded URL格式
+   multipart/form-data:多部分形式，一般用于传输包含二进制内容的多项内容  boundary=--------分界
+   application/json:json格式，用于Web Api 的响应或POST/PUT请求(比urlencoded更加灵活)
+   image/jpeg/application/zip...:单文件,用于Web Api响应或POST/PUT请求
+
+[Chunked Transfer Encoding(分块传输编码)
+   Transfer-Encoding:chunked
+   表示Body长度无法确定，Content-Length 不能使用
+   目的:在服务端还未获取到完整内容时，更快对客户端做出响应，减少用户等待]
+
+Location:重定向的目标URL
+User-Agent:用户代理(客户端) 
+Range/Accept-Range:指定Body的内容范围 (分段加载->断点续传,多线程下载)
+Cookie/Set-Cookie:发送Cookie/设置Cookie
+Authorzation:授权信息
+
+部分其他Header
+Accept:客户端能接受的数据类型。如 text/html
+Accept-Charset:客户端接受的字符集。如 utf-8
+Accept-Encoding:客户端接受的压缩编码类型。如 gzip
+Content-Encoding:压缩类型。如 gzip
+
+
+Cache
+Cache和Buffer的区别(缓存[LruCache] 缓冲(工作流))
+Cache-Control:no-cache、no-store、max-age
+Last-Modified
+  If-Modified-Since
+Etag(指纹)
+  If-None-Match
+Cache-Control:private/public
+
+
+REST
+什么是REST(一种架构风格)
+Client-server architecture(客户端-服务器架构 cs架构)
+Statelessness(无状态)————请求之间无关联
+Cacheability(可缓存)
+Layered system(无感知系统)
+Code on demand(服务器返回数据可以包含可执行代码)
+Uniform interface(统一接口)
+  Resource identification in requests(通过请求就足够确认资源)
+  Resource manipulation through representations(客户端通过服务器的表现就有足够的信息去修改服务器的资源)
+  Self-descriptive messages(自描述的信息)
+  Hypermedia as the engine of application state(HATEOAS)(类似网站，提供一个页面可访问所有资源) (示例:api.github.com)
+
+  RESTful HTTP
+  	正确使用HTTP
+
+
+

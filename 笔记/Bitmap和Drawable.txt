@@ -1,0 +1,4 @@
+Bitmap和Drawable
+
+Bitmap -->像素数据的映射(位图)
+Drawable -->一个绘制工具

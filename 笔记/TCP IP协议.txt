@@ -1,0 +1,22 @@
+TCP/IP协议族
+一系列协议所组成的一个网络分层模型(4层模型)
+为什么要分层？ 网络不稳定(丢包)
+分块传输--->分层
+
+具体分层:
+Application Layer 应用层(HTTP、FTP、DNS)
+				  安全层(TLS)
+Transport Layer   传输层(TCP 传输控制协议 UDP 用户数据报协议)  (数据分块 组合)
+Internet Layer    网络互联层(IP) (数据传输)
+
+Link Layer        数据链路层(以太网 Wi-Fi) (物理网络支持)
+
+TCP连接
+什么叫做连接？ TCP的连接(有状态的连接 通过端口认识 Socket(套接字 插口))
+
+TCP连接的建立(三次握手) 
+TCP连接的关闭(四次挥手)   
+
+长连接
+	长连接的实现方式:心跳
+

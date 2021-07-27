@@ -1,0 +1,21 @@
+OkHttp的演进之路
+原生方案不好用,Square自己造:OkHttp的初版
+从头撸到脚:脱离对原生的依赖
+被Android官方收录:成为业界公认最佳方案
+
+RealCall.enqueue(request) <-----Call.enqueue()
+
+HttpClient.Dispatcher.enqueue(AsyncCall(request))
+
+Dispatcher.promoteAndExecute()
+
+AsyncCall.executeOn(executorService)
+
+ExecutorService.execute()
+
+RealCall.getResponseWithInterceptorChain()
+
+
+https://api.github.com/users/rengwuxian/repos
+
+POST /users/rengwuxian/repos
